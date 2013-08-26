@@ -1,16 +1,45 @@
-﻿@model dynamic
+﻿@model DgonDotNet.Blog.Samples.DynamicCollections.Models.DisplayViewModel
 
 @{
-	ViewBag.Title = "title";
+	ViewBag.Title = "Displaying";
 }
 
-<h2>Heading</h2>
+<h1>Displaying</h1>
+
+<table class="table table-bordered table-striped table-hover table-responsive">
+	<caption>Displayable things in a loop</caption>
+	<thead>
+		<tr>
+			<th>@Html.DisplayNameFor(model => model.Things.First().Number)</th>
+			<th>@Html.DisplayNameFor(model => model.Things.First().Text)</th>
+			<th>@Html.DisplayNameFor(model => model.Things.First().IsEven)</th>
+		</tr>
+	</thead>
+	<tbody>
+		@for (int i = 0; i < Model.Things.Length; i++)
+		{
+			<tr>
+				<td>
+					@Html.HiddenFor(m => Model.Things[i].Number)
+					@Html.DisplayFor(m => Model.Things[i].Number)
+				</td>
+				<td>
+					@Html.HiddenFor(m => Model.Things[i].Text)
+					@Html.DisplayFor(m => Model.Things[i].Text)
+				</td>
+				<td>
+					@Html.DisplayFor(m => Model.Things[i].IsEven)
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
 
 @section scripts
 {
 	<script type="text/javascript">
 		$(function () {
-			alert(jQuery.fn.jquery + ' ' + jQuery.ui.version);
+			
 		});
 	</script>
 }
