@@ -27,15 +27,12 @@ var DGON_DOTNET = DGON_DOTNET || {};
 				deletedSelector: '.data-delete',
 			});
 
-			$(tableSelector).delegate(options.deleteSelector, 'click', function (e) {
-				$(e.target).parents('tr')
-					.hide({
-						complete: function () {
-							var $row = $(this);
-							$row.find(options.deletedSelector).val(true);
-						}
-					});
-			});
+			$(tableSelector).delegate(
+				options.deleteSelector,
+				'click',
+				function (evt) {
+					deleteRow(evt.target, options);
+				});
 		},
 	};
 	function optionsWithDefaults(options, defaults) {
@@ -60,6 +57,16 @@ var DGON_DOTNET = DGON_DOTNET || {};
 			var $row = $(this);
 			$row.find(sortSelector).val(index);
 		});
+	}
+	
+	function deleteRow(column, options) {
+		$(column).parents('tr')
+			.hide({
+				complete: function () {
+					var $row = $(this);
+					$row.find(options.deletedSelector).val(true);
+				}
+			});
 	}
 
 })(jQuery);

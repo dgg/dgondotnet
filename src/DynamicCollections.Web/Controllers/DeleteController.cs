@@ -5,7 +5,7 @@ using DgonDotNet.Blog.Samples.DynamicCollections.Models;
 
 namespace DgonDotNet.Blog.Samples.DynamicCollections.Controllers
 {
-	public class DeleteController : Controller
+	public class DeleteController : DiscardController<DeleteViewModel>
 	{
 		private readonly IThingRepository _repository;
 
@@ -23,6 +23,22 @@ namespace DgonDotNet.Blog.Samples.DynamicCollections.Controllers
 			};
 
 			return View(model);
+		}
+
+		[HttpPost]
+		public override ActionResult Index(string save, string cancel, DeleteViewModel posted)
+		{
+			if (isSave(save, cancel))
+			{
+				_repository.Save(DeletableThing.ToThings(posted.Things));
+			}
+
+			IEnumerable<Thing> updatedThings = _repository.Find();
+			var model = new DeleteViewModel
+			{
+				Things = DeletableThing.FromThings(updatedThings)
+			};
+			return View("Index", model);
 		}
 	}
 }

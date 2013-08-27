@@ -100,6 +100,7 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DeleteController.cs" />
+    <Compile Include="Controllers\DiscardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SortController.cs" />
     <Compile Include="Domain\IThingRepository.cs" />

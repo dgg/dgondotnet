@@ -5,7 +5,7 @@ using DgonDotNet.Blog.Samples.DynamicCollections.Models;
 
 namespace DgonDotNet.Blog.Samples.DynamicCollections.Controllers
 {
-	public class SortController : Controller
+	public class SortController : DiscardController<SortViewModel>
 	{
 		private readonly IThingRepository _repository;
 
@@ -26,7 +26,7 @@ namespace DgonDotNet.Blog.Samples.DynamicCollections.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult Index(string save, string discard, SortViewModel posted)
+		public override ActionResult Index(string save, string discard, SortViewModel posted)
 		{
 			if (isSave(save, discard))
 			{
@@ -39,11 +39,6 @@ namespace DgonDotNet.Blog.Samples.DynamicCollections.Controllers
 				Things = SortableThing.FromThings(updatedThings)
 			};
 			return View(model);
-		}
-
-		private bool isSave(string save, string discard)
-		{
-			return !string.IsNullOrEmpty(save) && string.IsNullOrEmpty(discard);
 		}
 	}
 }

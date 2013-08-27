@@ -26,5 +26,17 @@ namespace DgonDotNet.Blog.Samples.DynamicCollections.Models
 				new DeletableThing(t) { ClientDeleted = false })
 				.ToArray();
 		}
+
+		public Thing ToThing()
+		{
+			return new Thing { Number = Number, Text = Text };
+		}
+
+		public static IEnumerable<Thing> ToThings(DeletableThing[] from)
+		{
+			return from
+				.Delete()
+				.Select(st => st.ToThing());
+		}
 	}
 }

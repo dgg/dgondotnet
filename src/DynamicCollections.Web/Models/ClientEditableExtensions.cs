@@ -12,5 +12,12 @@ namespace DgonDotNet.Blog.Samples.DynamicCollections.Models
 				// sort by the number set cliet-side when re-ordering
 				.OrderBy(i => i.ClientOrder);
 		}
+
+		public static IEnumerable<T> Delete<T>(this IEnumerable<T> deletables) where T : IClientDeletable
+		{
+			return deletables.EmptyIfNull()
+				// ignore the ones deleted client-side
+				.Where(i => !i.ClientDeleted);
+		}
 	}
 }
