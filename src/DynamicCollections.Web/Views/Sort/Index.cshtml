@@ -1,0 +1,22 @@
+﻿@model SortViewModel
+
+@{
+	ViewBag.Title = "Sorting";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Sorting</h1>
+<table id="table-sortable" class="table table-bordered table-striped table-hover table-responsive">
+	<caption>Sortable things</caption>
+	<thead>
+		<tr>
+			<th>@Html.DisplayNameFor(model => model.Things.First().Number)</th>
+			<th>@Html.DisplayNameFor(model => model.Things.First().Text)</th>
+			<th>@Html.DisplayNameFor(model => model.Things.First().IsEven)</th>
+			<th class="table-actions">Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		@Html.DisplayFor(m => m.Things)
+	</tbody>
+</table>

@@ -5,3 +5,11 @@
 body {
 	padding-top: 50px;
 }
+
+.table-actions {
+	width: 10%;
+}
+
+.handle {
+	cursor: move;
+}

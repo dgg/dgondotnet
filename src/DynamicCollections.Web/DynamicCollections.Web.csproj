@@ -100,6 +100,7 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SortController.cs" />
     <Compile Include="Domain\IThingRepository.cs" />
     <Compile Include="Domain\SomeUsefulExtensions.cs" />
     <Compile Include="Domain\Thing.cs" />
@@ -109,9 +110,12 @@
     </Compile>
     <Compile Include="Models\DisplayableThing.cs" />
     <Compile Include="Models\DisplayViewModel.cs" />
+    <Compile Include="Models\SortableThing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\BootstrapEntryPoint.cs" />
     <Compile Include="Views\HtmlHelperExtensions.cs" />
+    <Compile Include="Views\IClientSortable.cs" />
+    <Compile Include="Views\SortViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -143,6 +147,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\DisplayTemplates\DisplayableThing.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Sort\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Sort\DisplayTemplates\SortableThing.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

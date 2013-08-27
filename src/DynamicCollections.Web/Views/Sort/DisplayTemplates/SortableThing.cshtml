@@ -1,0 +1,20 @@
+﻿@model DgonDotNet.Blog.Samples.DynamicCollections.Models.SortableThing
+
+<tr>
+	<td>
+		@Html.HiddenFor(m => m.ClientOrder, new { @class = "data-sort" })
+		@Html.HiddenFor(m => m.Number)
+		@Html.DisplayFor(m => m.Number)
+	</td>
+	<td>
+		@Html.HiddenFor(m => m.Text)
+		@Html.DisplayFor(m => m.Text)
+	</td>
+	<td>
+		@Html.HiddenFor(m => m.IsEven)
+		@Html.DisplayFor(m => m.IsEven)
+	</td>
+	<td>
+		<span class="glyphicon glyphicon-sort pull-right handle"></span>
+	</td>
+</tr>
