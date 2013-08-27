@@ -1,0 +1,30 @@
+﻿@model DgonDotNet.Blog.Samples.DynamicCollections.Models.AddViewModel
+
+@{
+	ViewBag.Title = "Adding";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Adding</h1>
+<table id="table-addable" class="table table-bordered table-striped table-hover table-responsive">
+	<caption>Addable things</caption>
+	<thead>
+		<tr>
+			<th>@Html.DisplayNameFor(model => model.Things.First().Number)</th>
+			<th>@Html.DisplayNameFor(model => model.Things.First().Text)</th>
+			<th>@Html.DisplayNameFor(model => model.Things.First().IsEven)</th>
+			<th class="table-actions text-center"><span class="glyphicon glyphicon-plus" id="add-thing"></span></th>
+		</tr>
+	</thead>
+	<tbody>
+		@Html.DisplayFor(m => m.Things)
+	</tbody>
+</table>
+@section scripts
+{
+	<script type="text/javascript">
+		$(function () {
+			
+		});
+	</script>
+}
