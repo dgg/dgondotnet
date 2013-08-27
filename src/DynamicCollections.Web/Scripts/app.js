@@ -1,1 +1,41 @@
-﻿
+﻿/// <reference path="jquery-2.0.3.js" />
+/// <reference path="jquery-ui-1.10.3.js" />
+
+var DGON_DOTNET = DGON_DOTNET || {};
+
+; (function ($, log, undefined) {
+	DGON_DOTNET.ClientInteraction =
+	{
+		makeSortable: function (tableSelector, options) {
+			options = optionsWithDefaults(options, {
+				handleSelector: '.handle',
+				sortSelector: '.data-sort'
+			});
+
+			var tbody = $(tableSelector + ' tbody');
+			$(tbody).sortable({
+				handle: options.handleSelector,
+				stop: function (e, ui) {
+					reorder(e.target.rows, options.sortSelector);
+				}
+			});
+		},
+	};
+	function optionsWithDefaults(options, defaults) {
+		if (typeof options === 'object') {
+			options = $.extend(defaults, options);
+		}
+		else {
+			options = defaults;
+		}
+		return options;
+	}
+
+	function reorder(rows, sortSelector) {
+		$(rows).each(function (index) {
+			var $row = $(this);
+			$row.find(sortSelector).val(index);
+		});
+	}
+
+})(jQuery);

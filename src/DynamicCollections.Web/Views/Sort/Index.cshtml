@@ -20,3 +20,12 @@
 		@Html.DisplayFor(m => m.Things)
 	</tbody>
 </table>
+
+@section scripts
+{
+	<script type="text/javascript">
+		$(function () {
+			DGON_DOTNET.ClientInteraction.makeSortable('#table-sortable');
+		});
+	</script>
+}
