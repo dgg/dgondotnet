@@ -7,7 +7,7 @@
 <h1>Displaying</h1>
 
 <table class="table table-bordered table-striped table-hover table-responsive">
-	<caption>Displayable things in a loop</caption>
+	<caption>Displayable things in a loop (naughty, naughty)</caption>
 	<thead>
 		<tr>
 			<th>@Html.DisplayNameFor(model => model.Things.First().Number)</th>
@@ -20,11 +20,9 @@
 		{
 			<tr>
 				<td>
-					@Html.HiddenFor(m => Model.Things[i].Number)
 					@Html.DisplayFor(m => Model.Things[i].Number)
 				</td>
 				<td>
-					@Html.HiddenFor(m => Model.Things[i].Text)
 					@Html.DisplayFor(m => Model.Things[i].Text)
 				</td>
 				<td>
@@ -32,6 +30,20 @@
 				</td>
 			</tr>
 		}
+	</tbody>
+</table>
+
+<table class="table table-bordered table-striped table-hover table-responsive">
+	<caption>Displayable things using templates (good boy)</caption>
+	<thead>
+		<tr>
+			<th>@Html.DisplayNameFor(model => model.Things.First().Number)</th>
+			<th>@Html.DisplayNameFor(model => model.Things.First().Text)</th>
+			<th>@Html.DisplayNameFor(model => model.Things.First().IsEven)</th>
+		</tr>
+	</thead>
+	<tbody>
+		@Html.DisplayFor(m => m.Things)
 	</tbody>
 </table>
 
