@@ -1,5 +1,6 @@
 ﻿/// <reference path="jquery-2.0.3.js" />
 /// <reference path="jquery-ui-1.10.3.js" />
+/// <reference path="handlebars.min.js" />
 
 var DGON_DOTNET = DGON_DOTNET || {};
 
@@ -34,6 +35,24 @@ var DGON_DOTNET = DGON_DOTNET || {};
 					deleteRow(evt.target, options);
 				});
 		},
+		addTemplatedRow: function (tableSelector, templateSelector, options) {
+			options = optionsWithDefaults(options, {
+				templateIndexer: 'NewIndex',
+				indexSelector: '.data-index',
+			});
+
+			var $lastRow = null, lastIndex = 0;
+			$(tableSelector + ' tbody tr').each(function () {
+				$lastRow = $(this);
+				lastIndex++;
+			});
+
+			var data = {};
+			data[options.templateIndexer] = lastIndex;
+
+			var template = Handlebars.compile($(templateSelector).html());
+			$lastRow.after(template(data));
+		}
 	};
 	function optionsWithDefaults(options, defaults) {
 		if (typeof options === 'object') {

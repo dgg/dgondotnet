@@ -13,18 +13,23 @@
 			<th>@Html.DisplayNameFor(model => model.Things.First().Number)</th>
 			<th>@Html.DisplayNameFor(model => model.Things.First().Text)</th>
 			<th>@Html.DisplayNameFor(model => model.Things.First().IsEven)</th>
-			<th class="table-actions text-center"><span class="glyphicon glyphicon-plus" id="add-thing"></span></th>
+			<th class="table-actions text-center"><span class="glyphicon glyphicon-plus add"></span></th>
 		</tr>
 	</thead>
 	<tbody>
 		@Html.DisplayFor(m => m.Things)
 	</tbody>
 </table>
+
+@Html.Partial("_template", Model)
+
 @section scripts
 {
 	<script type="text/javascript">
 		$(function () {
-			
+			$('.add').click(function () {
+				DGON_DOTNET.ClientInteraction.addTemplatedRow('#table-addable', '#addable-template');
+			});
 		});
 	</script>
 }
