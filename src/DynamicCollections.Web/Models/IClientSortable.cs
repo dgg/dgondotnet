@@ -1,4 +1,4 @@
-﻿namespace DgonDotNet.Blog.Samples.DynamicCollections.Views
+﻿namespace DgonDotNet.Blog.Samples.DynamicCollections.Models
 {
 	public interface IClientSortable
 	{

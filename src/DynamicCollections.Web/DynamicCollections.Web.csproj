@@ -110,12 +110,12 @@
     </Compile>
     <Compile Include="Models\DisplayableThing.cs" />
     <Compile Include="Models\DisplayViewModel.cs" />
+    <Compile Include="Models\IClientSortable.cs" />
     <Compile Include="Models\SortableThing.cs" />
+    <Compile Include="Models\SortViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\BootstrapEntryPoint.cs" />
     <Compile Include="Views\HtmlHelperExtensions.cs" />
-    <Compile Include="Views\IClientSortable.cs" />
-    <Compile Include="Views\SortViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />

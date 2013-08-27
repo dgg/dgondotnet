@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using DgonDotNet.Blog.Samples.DynamicCollections.Controllers;
 using DgonDotNet.Blog.Samples.DynamicCollections.Domain;
-using DgonDotNet.Blog.Samples.DynamicCollections.Views;
 
 namespace DgonDotNet.Blog.Samples.DynamicCollections.Models
 {
@@ -24,7 +22,9 @@ namespace DgonDotNet.Blog.Samples.DynamicCollections.Models
 
 		public static SortableThing[] FromThings(IEnumerable<Thing> from)
 		{
-			return from.Select(t => new SortableThing(t)).ToArray();
+			return from.Select((t, i) => 
+				new SortableThing(t){ ClientOrder = i})
+				.ToArray();
 		}
 	}
 }
