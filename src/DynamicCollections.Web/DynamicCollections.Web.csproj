@@ -108,6 +108,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ClientEditableExtensions.cs" />
     <Compile Include="Models\DisplayableThing.cs" />
     <Compile Include="Models\DisplayViewModel.cs" />
     <Compile Include="Models\IClientSortable.cs" />

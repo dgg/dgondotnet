@@ -25,5 +25,26 @@ namespace DgonDotNet.Blog.Samples.DynamicCollections.Controllers
 
 			return View(model);
 		}
+
+		[HttpPost]
+		public ActionResult Index(string save, string discard, SortViewModel posted)
+		{
+			if (isSave(save, discard))
+			{
+				_repository.Save(SortableThing.ToThings(posted.Things));
+			}
+
+			IEnumerable<Thing> updatedThings = _repository.Find();
+			var model = new SortViewModel
+			{
+				Things = SortableThing.FromThings(updatedThings)
+			};
+			return View(model);
+		}
+
+		private bool isSave(string save, string discard)
+		{
+			return !string.IsNullOrEmpty(save) && string.IsNullOrEmpty(discard);
+		}
 	}
 }

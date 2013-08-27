@@ -20,5 +20,11 @@ namespace DgonDotNet.Blog.Samples.DynamicCollections.Domain
 		{
 			return _things;
 		}
+
+		public void Save(IEnumerable<Thing> thingies)
+		{
+			_things.Clear();
+			_things.AddRange(thingies);
+		}
 	}
 }

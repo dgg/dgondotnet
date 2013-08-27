@@ -26,5 +26,15 @@ namespace DgonDotNet.Blog.Samples.DynamicCollections.Models
 				new SortableThing(t){ ClientOrder = i})
 				.ToArray();
 		}
+
+		public Thing ToThing()
+		{
+			return new Thing { Number = Number, Text = Text };
+		}
+
+		public static IEnumerable<Thing> ToThings(SortableThing[] from)
+		{
+			return from.Sort().Select(st => st.ToThing());
+		}
 	}
 }

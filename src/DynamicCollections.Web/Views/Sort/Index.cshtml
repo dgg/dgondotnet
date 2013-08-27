@@ -4,23 +4,30 @@
 	ViewBag.Title = "Sorting";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h1>Sorting</h1>
-<table id="table-sortable" class="table table-bordered table-striped table-hover table-responsive">
-	<caption>Sortable things</caption>
-	<thead>
-		<tr>
-			<th>@Html.DisplayNameFor(model => model.Things.First().Number)</th>
-			<th>@Html.DisplayNameFor(model => model.Things.First().Text)</th>
-			<th>@Html.DisplayNameFor(model => model.Things.First().IsEven)</th>
-			<th class="table-actions">Actions</th>
-		</tr>
-	</thead>
-	<tbody>
-		@Html.DisplayFor(m => m.Things)
-	</tbody>
-</table>
-
+@using (Html.BeginForm("Index", "Sort", FormMethod.Post, new{role = "form", @class="form-inline"}))
+{
+	<h1>Sorting</h1>
+	<table id="table-sortable" class="table table-bordered table-striped table-hover table-responsive">
+		<caption>Sortable things</caption>
+		<thead>
+			<tr>
+				<th>@Html.DisplayNameFor(model => model.Things.First().Number)</th>
+				<th>@Html.DisplayNameFor(model => model.Things.First().Text)</th>
+				<th>@Html.DisplayNameFor(model => model.Things.First().IsEven)</th>
+				<th class="table-actions">Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			@Html.DisplayFor(m => m.Things)
+		</tbody>
+	</table>
+	<div class="form-group">
+		<input type="submit" name="discard" value="Discard" class="btn btn-default" />
+	</div>
+	<div class="form-group">
+		<input type="submit" name="save" value="Save" class="btn btn-primary" />
+	</div>
+}
 @section scripts
 {
 	<script type="text/javascript">
