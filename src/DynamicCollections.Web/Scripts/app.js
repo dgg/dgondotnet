@@ -21,6 +21,22 @@ var DGON_DOTNET = DGON_DOTNET || {};
 				}
 			});
 		},
+		makeDeletable: function (tableSelector, options) {
+			options = optionsWithDefaults(options, {
+				deleteSelector: '.trash',
+				deletedSelector: '.data-delete',
+			});
+
+			$(tableSelector).delegate(options.deleteSelector, 'click', function (e) {
+				$(e.target).parents('tr')
+					.hide({
+						complete: function () {
+							var $row = $(this);
+							$row.find(options.deletedSelector).val(true);
+						}
+					});
+			});
+		},
 	};
 	function optionsWithDefaults(options, defaults) {
 		if (typeof options === 'object') {
