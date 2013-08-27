@@ -14,6 +14,7 @@ var DGON_DOTNET = DGON_DOTNET || {};
 
 			var tbody = $(tableSelector + ' tbody');
 			$(tbody).sortable({
+				helper: maintainWidth,
 				handle: options.handleSelector,
 				stop: function (e, ui) {
 					reorder(e.target.rows, options.sortSelector);
@@ -30,6 +31,13 @@ var DGON_DOTNET = DGON_DOTNET || {};
 		}
 		return options;
 	}
+
+	var maintainWidth = function (e, ui) {
+		ui.children().each(function () {
+			$(this).width($(this).width());
+		});
+		return ui;
+	};
 
 	function reorder(rows, sortSelector) {
 		$(rows).each(function (index) {
