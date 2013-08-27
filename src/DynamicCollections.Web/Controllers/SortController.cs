@@ -2,7 +2,6 @@
 using System.Web.Mvc;
 using DgonDotNet.Blog.Samples.DynamicCollections.Domain;
 using DgonDotNet.Blog.Samples.DynamicCollections.Models;
-using DgonDotNet.Blog.Samples.DynamicCollections.Views;
 
 namespace DgonDotNet.Blog.Samples.DynamicCollections.Controllers
 {

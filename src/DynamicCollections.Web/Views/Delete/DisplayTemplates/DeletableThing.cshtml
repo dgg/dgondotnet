@@ -1,0 +1,19 @@
+﻿@model DgonDotNet.Blog.Samples.DynamicCollections.Models.DeletableThing
+
+<tr>
+	<td>
+		@Html.HiddenFor(m => m.ClientDeleted, new { @class = "data-delete" })
+		@Html.HiddenFor(m => m.Number)
+		@Html.DisplayFor(m => m.Number)
+	</td>
+	<td>
+		@Html.HiddenFor(m => m.Text)
+		@Html.DisplayFor(m => m.Text)
+	</td>
+	<td>
+		@Html.DisplayFor(m => m.IsEven)
+	</td>
+	<td>
+		<span class="glyphicon glyphicon-trash pull-right trash"></span>
+	</td>
+</tr>

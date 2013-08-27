@@ -13,3 +13,7 @@ body {
 .handle {
 	cursor: move;
 }
+
+.trash {
+	cursor: pointer;
+}

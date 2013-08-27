@@ -99,6 +99,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DeleteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SortController.cs" />
     <Compile Include="Domain\IThingRepository.cs" />
@@ -109,8 +110,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ClientEditableExtensions.cs" />
+    <Compile Include="Models\DeletableThing.cs" />
+    <Compile Include="Models\DeleteViewModel.cs" />
     <Compile Include="Models\DisplayableThing.cs" />
     <Compile Include="Models\DisplayViewModel.cs" />
+    <Compile Include="Models\IClientDeletable.cs" />
     <Compile Include="Models\IClientSortable.cs" />
     <Compile Include="Models\SortableThing.cs" />
     <Compile Include="Models\SortViewModel.cs" />
@@ -154,6 +158,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Sort\DisplayTemplates\SortableThing.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Delete\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Delete\DisplayTemplates\DeletableThing.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,31 @@
+﻿@model DgonDotNet.Blog.Samples.DynamicCollections.Models.DeleteViewModel
+
+@{
+	ViewBag.Title = "Deleting";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Deleting</h1>
+<table id="table-deletable" class="table table-bordered table-striped table-hover table-responsive">
+	<caption>Deletable things</caption>
+	<thead>
+		<tr>
+			<th>@Html.DisplayNameFor(model => model.Things.First().Number)</th>
+			<th>@Html.DisplayNameFor(model => model.Things.First().Text)</th>
+			<th>@Html.DisplayNameFor(model => model.Things.First().IsEven)</th>
+			<th class="table-actions">Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		@Html.DisplayFor(m => m.Things)
+	</tbody>
+</table>
+
+@section scripts
+{
+	<script type="text/javascript">
+		$(function () {
+
+		});
+	</script>
+}
