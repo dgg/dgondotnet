@@ -34,7 +34,9 @@ namespace DgonDotNet.Blog.Samples.DynamicCollections.Models
 
 		public static IEnumerable<Thing> ToThings(SortableThing[] from)
 		{
-			return from.Sort().Select(st => st.ToThing());
+			return from
+				.Sort()
+				.Select(st => st.ToThing());
 		}
 	}
 }
