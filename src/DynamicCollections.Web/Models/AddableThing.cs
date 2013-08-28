@@ -24,5 +24,15 @@ namespace DgonDotNet.Blog.Samples.DynamicCollections.Models
 		{
 			return from.Select((t, i) => new AddableThing(t)).ToArray();
 		}
+
+		public Thing ToThing()
+		{
+			return new Thing { Number = Number, Text = Text };
+		}
+
+		public static IEnumerable<Thing> ToThings(AddableThing[] from)
+		{
+			return from.Select(st => st.ToThing());
+		}
 	}
 }

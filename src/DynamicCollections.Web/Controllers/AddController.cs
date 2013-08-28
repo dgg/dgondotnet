@@ -25,9 +25,19 @@ namespace DgonDotNet.Blog.Samples.DynamicCollections.Controllers
 		}
 
 		[HttpPost]
-		public override ActionResult Index(string save, string cancel, AddViewModel posted)
+		public override ActionResult Index(string save, string discard, AddViewModel posted)
 		{
-			return View();
+			if (isSave(save, discard))
+			{
+				_repository.Save(AddableThing.ToThings(posted.Things));
+			}
+
+			IEnumerable<Thing> updatedThings = _repository.Find();
+			var model = new AddViewModel
+			{
+				Things = AddableThing.FromThings(updatedThings)
+			};
+			return View(model);
 		}
 	}
 }

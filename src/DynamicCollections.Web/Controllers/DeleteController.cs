@@ -26,9 +26,9 @@ namespace DgonDotNet.Blog.Samples.DynamicCollections.Controllers
 		}
 
 		[HttpPost]
-		public override ActionResult Index(string save, string cancel, DeleteViewModel posted)
+		public override ActionResult Index(string save, string discard, DeleteViewModel posted)
 		{
-			if (isSave(save, cancel))
+			if (isSave(save, discard))
 			{
 				_repository.Save(DeletableThing.ToThings(posted.Things));
 			}
