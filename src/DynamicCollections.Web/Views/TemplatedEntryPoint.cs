@@ -24,14 +24,18 @@ namespace DgonDotNet.Blog.Samples.DynamicCollections.Views
 		private TagBuilder input<TProperty>(string type, Expression<Func<TModel, TProperty>> zeroIndexedExpression, string value, object htmlAttributes = null)
 		{
 			var input = new TagBuilder("input");
-			input.MergeAttributes(HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
-			input.MergeAttribute("type", type);
+			setNonTemplatedAttributes(input, type, value, htmlAttributes);
 
 			setTemplatedAttributes(input, zeroIndexedExpression);
-
-			input.MergeAttribute("value", value);
-
+			
 			return input;
+		}
+
+		private static void setNonTemplatedAttributes(TagBuilder input, string type, string value, object htmlAttributes)
+		{
+			input.MergeAttributes(HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
+			input.MergeAttribute("type", type);
+			input.MergeAttribute("value", value);
 		}
 
 		private void setTemplatedAttributes<TProperty>(TagBuilder tag, Expression<Func<TModel, TProperty>> zeroIndexedExpression)

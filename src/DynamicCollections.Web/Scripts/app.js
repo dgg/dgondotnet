@@ -41,17 +41,13 @@ var DGON_DOTNET = DGON_DOTNET || {};
 				indexSelector: '.data-index',
 			});
 
-			var $lastRow = null, lastIndex = 0;
-			$(tableSelector + ' tbody tr').each(function () {
-				$lastRow = $(this);
-				lastIndex++;
-			});
+			var last = calculateLast(tableSelector);
 
 			var data = {};
-			data[options.templateIndexer] = lastIndex;
+			data[options.templateIndexer] = last.index;
+			var instance = instantiateTemplate(templateSelector, data);
 
-			var template = Handlebars.compile($(templateSelector).html());
-			$lastRow.after(template(data));
+			last.$row.after(instance);
 		}
 	};
 	function optionsWithDefaults(options, defaults) {
@@ -86,6 +82,20 @@ var DGON_DOTNET = DGON_DOTNET || {};
 					$row.find(options.deletedSelector).val(true);
 				}
 			});
+	}
+	
+	function calculateLast(tableSelector) {
+		var last = { $row: null, index: 0 };
+		$(tableSelector + ' tbody tr').each(function () {
+			last.$row = $(this);
+			last.index++;
+		});
+		return last;
+	}
+	
+	function instantiateTemplate(templateSelector, data) {
+		var template = Handlebars.compile($(templateSelector).html());
+		return template(data);
 	}
 
 })(jQuery);
