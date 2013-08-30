@@ -13,7 +13,7 @@ namespace DgonDotNet.Blog.Samples.DynamicCollections.Models
 				.OrderBy(i => i.ClientOrder);
 		}
 
-		public static IEnumerable<T> Delete<T>(this IEnumerable<T> deletables) where T : IClientDeletable
+		public static IEnumerable<T> NotDeleted<T>(this IEnumerable<T> deletables) where T : IClientDeletable
 		{
 			return deletables.EmptyIfNull()
 				// ignore the ones deleted client-side

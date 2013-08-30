@@ -35,7 +35,7 @@ namespace DgonDotNet.Blog.Samples.DynamicCollections.Models
 		public static IEnumerable<Thing> ToThings(DeletableThing[] from)
 		{
 			return from
-				.Delete()
+				.NotDeleted()
 				.Select(st => st.ToThing());
 		}
 	}

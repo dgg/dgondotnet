@@ -38,7 +38,7 @@ namespace DgonDotNet.Blog.Samples.DynamicCollections.Controllers
 			{
 				Things = DeletableThing.FromThings(updatedThings)
 			};
-			return View("Index", model);
+			return View(model);
 		}
 	}
 }
