@@ -20,7 +20,6 @@ namespace CustomIsRisky.Default
 				}
 			});
 		}
-		public override string TransformerName { get { return "Default_SnapshotTransformer"; }
-		}
+		public override string TransformerName { get { return "Default_SnapshotTransformer"; } }
 	}
 }
