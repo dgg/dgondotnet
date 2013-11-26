@@ -56,6 +56,8 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Custom\PascalCaseMoneyConverter.cs" />
+    <Compile Include="Custom\SnapshotTransformer.cs" />
     <Compile Include="Line.cs" />
     <Compile Include="Naive\SnapshotTransformer.cs" />
     <Compile Include="Order.cs" />

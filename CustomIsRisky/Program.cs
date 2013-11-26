@@ -14,8 +14,9 @@ namespace CustomIsRisky
 	{
 		static void Main(string[] args)
 		{
-			naiveProjection();
-			defaultSerialization();
+			//naiveProjection();
+			//defaultSerialization();
+			//overrideCustomSerialization();
 			Console.ReadLine();
 		}
 
@@ -35,7 +36,7 @@ namespace CustomIsRisky
 						.TransformWith<Naive.SnapshotTransformer, Snapshot>()
 						.Where(c => c.Owner == "owner")
 						.ToArray()
-						.ForEach(s => Console.WriteLine(s.Total));
+						.ForEach(s => Console.WriteLine("Custom line count: {0}\ttotal: {1}", s.LineCount, s.Total));
 				}
 			}
 		}
@@ -114,70 +115,32 @@ namespace CustomIsRisky
 						.TransformWith<Default.SnapshotTransformer, Snapshot>()
 						.Where(c => c.Owner == "owner")
 						.ToArray()
-						.ForEach(s => Console.WriteLine(s.Total));
+						.ForEach(s => Console.WriteLine("Default line count: {0}\ttotal: {1}", s.LineCount, s.Total));
 				}
 			}
 		}
 
-		private static void customSerialization()
+		private static void overrideCustomSerialization()
 		{
 			using (IDocumentStore store = initStore())
 			{
-				var byOwner = new Snapshots_ByOwner();
-				store.DatabaseCommands.DeleteIndex(byOwner.IndexName);
-				store.ExecuteIndex(byOwner);
+				store.Conventions.CustomizeJsonSerializer = serializer =>
+					serializer.Converters.Add(new Custom.PascalCaseMoneyConverter());
 
-				var asSnapshot = new Default.SnapshotTransformer();
-				store.DatabaseCommands.DeleteTransformer(asSnapshot.TransformerName);
-				store.ExecuteTransformer(asSnapshot);
-
-				store.DatabaseCommands.DeleteByIndex("Raven/DocumentsByEntityName", new IndexQuery { Query = "Tag: Orders" });
+				resetIndex(store, new Snapshots_ByOwner());
+				resetTransformer(store, new Custom.SnapshotTransformer());
+				deleteAllOrders(store);
 
 				using (IDocumentSession session = store.OpenSession())
 				{
-					session.Store(new Order
-					{
-						Number = 1,
-						Owner = "owner",
-						Created = new DateTimeOffset(2013, 10, 24, 0, 0, 0, TimeSpan.Zero),
-						HeaderProperty = "one",
-						Currency = CurrencyIsoCode.DKK,
-						Lines = new[]
-						{
-							new Line { ProductId = "x", Quantity = 2, Price = 12m.Dkk() },
-							new Line { ProductId = "y", Quantity = 1, Price = 13m.Dkk() }
-						}
-					});
-					session.Store(new Order
-					{
-						Number = 2,
-						Owner = "another owner",
-						Created = new DateTimeOffset(2013, 10, 23, 0, 0, 0, TimeSpan.Zero),
-						HeaderProperty = "two",
-						Currency = CurrencyIsoCode.DKK,
-						Lines = new Line[0]
-					});
-					session.Store(new Order
-					{
-						Number = 3,
-						Owner = "owner",
-						Created = new DateTimeOffset(2013, 10, 23, 0, 0, 0, TimeSpan.Zero),
-						HeaderProperty = "two",
-						Currency = CurrencyIsoCode.DKK,
-						Lines = new[]
-						{
-							new Line { ProductId = "z", Quantity = 12, Price = 24m.Dkk() }
-						}
-					});
-
-					session.SaveChanges();
-
+					storeSomeOrders(session);
+					
 					session
 						.Query<Order, Snapshots_ByOwner>()
-						.TransformWith<Default.SnapshotTransformer, Snapshot>()
+						.TransformWith<Custom.SnapshotTransformer, Snapshot>()
 						.Where(c => c.Owner == "owner")
 						.ToArray()
-						.ForEach(s => Console.WriteLine(s.Total));
+						.ForEach(s => Console.WriteLine("Custom line count: {0}\ttotal: {1}", s.LineCount, s.Total));
 				}
 			}
 		}
