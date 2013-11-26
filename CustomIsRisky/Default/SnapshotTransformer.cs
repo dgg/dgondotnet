@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Raven.Client.Indexes;
 
-namespace CustomIsRisky
+namespace CustomIsRisky.Default
 {
 	public class SnapshotTransformer : AbstractTransformerCreationTask<Order>
 	{
@@ -19,6 +19,8 @@ namespace CustomIsRisky
 					amount = o.Lines.Sum(l => l.Price.Amount)
 				}
 			});
+		}
+		public override string TransformerName { get { return "Default_SnapshotTransformer"; }
 		}
 	}
 }
