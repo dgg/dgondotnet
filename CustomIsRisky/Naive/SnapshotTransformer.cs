@@ -17,9 +17,6 @@ namespace CustomIsRisky.Naive
 				Total = Money.Total(o.Lines.Select(l => l.Price))
 			});
 		}
-		public override string TransformerName
-		{
-			get { return "Naive_SnapshotTransformer"; }
-		}
+		public override string TransformerName { get { return "Naive_SnapshotTransformer"; } }
 	}
 }
