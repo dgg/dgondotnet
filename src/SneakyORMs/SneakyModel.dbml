@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database EntityNamespace="DgonDotNet.Blog.Samples.SneakyORMs" ContextNamespace="DgonDotNet.Blog.Samples.SneakyORMs" Class="SneakyContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="Parents">
+    <Type Name="Parent">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarchar(128)" CanBeNull="false" />
+      <Association Name="Parent_Subject" Member="Subjects" ThisKey="Id" OtherKey="ParentId" Type="Subject" />
+    </Type>
+  </Table>
+  <Table Name="Subjects">
+    <Type Name="Subject">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarchar(256)" CanBeNull="true" />
+      <Column Name="ParentId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="false" />
+      <Association Name="Subject_Child" Member="Children" ThisKey="Id" OtherKey="SubjectId" Type="Child" />
+      <Association Name="Subject_AnotherChild" Member="OtherChildren" ThisKey="Id" OtherKey="SubjectId" Type="OtherChild" />
+      <Association Name="Parent_Subject" Member="Parent" ThisKey="ParentId" OtherKey="Id" Type="Parent" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Children" Member="Childs">
+    <Type Name="Child">
+      <Column Name="Id" Type="System.Int16" DbType="SmallInt" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Data" Type="System.String" DbType="NVarchar(128)" CanBeNull="true" />
+      <Column Name="SubjectId" Type="System.Int64" DbType="BigInt" CanBeNull="false" />
+      <Association Name="Subject_Child" Member="Subject" ThisKey="SubjectId" OtherKey="Id" Type="Subject" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="OtherChildren" Member="OtherChilds">
+    <Type Name="OtherChild">
+      <Column Name="Id" Type="System.Int16" DbType="SmallInt" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Data" Type="System.String" DbType="NVarchar(128)" CanBeNull="true" />
+      <Column Name="SubjectId" Type="System.Int64" DbType="BigInt" CanBeNull="false" />
+      <Association Name="Subject_AnotherChild" Member="Subject" ThisKey="SubjectId" OtherKey="Id" Type="Subject" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
