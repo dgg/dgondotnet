@@ -1,18 +1,11 @@
 ﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<string>
-
 @{
-	Layout = null;
+	Layout = "Shared/_layout";
+	ViewBag.TopNavigation = "Home";
 }
 
-<!DOCTYPE html>
 
-<html>
-	<head>
-		<title>title</title>
-	</head>
-	<body>
-		<div>
-			 @Model
-		</div>
-	</body>
-</html>
+<div class="large-8 medium-8 columns">
+	<h3>What's the point?</h3>
+	<p>Toggling Features is nice</p>
+</div>
