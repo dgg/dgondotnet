@@ -7,7 +7,7 @@ namespace FeatureToggling.Web.Modules
 		public TopLevel()
 		{
 			new Features.TopLevel()
-				.TryRegister(this, _ => 
+				.TryActivate(this, _ => 
 					View["TopLevel"]);
 		}
 	}
