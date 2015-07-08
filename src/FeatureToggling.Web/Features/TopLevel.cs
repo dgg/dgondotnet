@@ -6,7 +6,7 @@ namespace FeatureToggling.Web.Features
 {
 	public class TopLevel : IFeature
 	{
-		public bool TryRegister(NancyModule module, Func<dynamic, dynamic> method)
+		public bool TryActivate(NancyModule module, Func<dynamic, dynamic> method)
 		{
 			bool registered = this.Is().Enabled;
 			if (registered) module.Get["/top-level"] = method;
