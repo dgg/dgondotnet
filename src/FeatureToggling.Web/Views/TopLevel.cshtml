@@ -1,0 +1,33 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<dynamic>
+@{
+	Layout = "Shared/_layout";
+	ViewBag.TopNavigation = "TopLevel";
+}
+
+
+<div class="large-6 medium-6 columns">
+	<form>
+		<fieldset>
+			<legend>A nice top-level feature</legend>
+
+			<div class="row">
+				<div class="small-8 columns">
+					<div class="row">
+						<div class="small-3 columns">
+							<label for="right-label" class="right inline">Press the button</label>
+						</div>
+						<div class="small-9 columns">
+							<button class="button round" data-reveal-id="myModal">The Button</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</div>
+
+<div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+	<h2 id="modalTitle">Top Level</h2>
+	<p><em>The</em> Button was pressed</p>
+	<a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>

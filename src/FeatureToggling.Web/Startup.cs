@@ -1,4 +1,5 @@
-﻿using Owin;
+﻿using FeatureSwitcher.Configuration;
+using Owin;
 
 namespace FeatureToggling.Web
 {
@@ -6,6 +7,9 @@ namespace FeatureToggling.Web
 	{
 		public void Configuration(IAppBuilder app)
 		{
+			FeatureSwitcher.Configuration.Features.Are
+				.ConfiguredBy.AppConfig().And
+				.NamedBy.TypeName();
 			app.UseNancy();
 		}
 	}

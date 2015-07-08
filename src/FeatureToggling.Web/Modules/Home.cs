@@ -6,10 +6,7 @@ namespace FeatureToggling.Web.Modules
 	{
 		public Home()
 		{
-			Get["/"] = _ =>
-			{
-				return View["Home", "hello"];
-			};
+			Get["/"] = _ => View["Home", "hello"];
 		}	 
 	}
 }
