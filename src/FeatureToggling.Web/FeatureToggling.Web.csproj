@@ -79,12 +79,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Features\TopLevel.cs" />
+    <Compile Include="Features\Optional.cs" />
     <Compile Include="Modules\Home.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewExtensions.cs" />
-    <Compile Include="Modules\TopLevel.cs" />
+    <Compile Include="Modules\Optional.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -92,7 +92,7 @@
     <Content Include="Views\Shared\_layout.cshtml" />
     <Content Include="Views\Shared\_navigation.cshtml" />
     <Content Include="Features.config" />
-    <Content Include="Views\TopLevel.cshtml" />
+    <Content Include="Views\Optional.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
