@@ -19,12 +19,12 @@ namespace DgonDotNet.Blog.Samples.NotLastConsole_GoCommando
 		[Description("place where the something was done")]
 		public string Location { get; set; }
 
-		[Parameter("times", "t", optional: true, defaultValue: "-1")]
-		[Description("include if the something was awesome")]
+		[Parameter("times", "t", optional: true, defaultValue: "1")]
+		[Description("number of times something was done")]
 		public int Times { get; set; }
 
 		[Parameter("awesome", "a", optional: true)]
-		[Description("number of times something was done")]
+		[Description("include if the something was awesome")]
 		public bool Awesome { get; set; }
 
 		public void Run()

@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DgonDotNet.Blog.Samples.NotLastConsole_GoCommando</RootNamespace>
-    <AssemblyName>DgonDotNet.Blog.Samples.NotLastConsole_GoCommando</AssemblyName>
+    <AssemblyName>doer</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -45,6 +45,7 @@
     <Compile Include="Something.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SomethingElse.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NotLastConsole\NotLastConsole.csproj">
