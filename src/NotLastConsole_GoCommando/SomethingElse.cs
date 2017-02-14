@@ -17,17 +17,21 @@ namespace DgonDotNet.Blog.Samples.NotLastConsole_GoCommando
 
 		[Parameter("locations", "l")]
 		[Description("places where the something else was done")]
-		public string[] Locations { get; set; }
+		[Example("singleLocation")]
+		[Example("multiple,comma-separated-locations")]
+		public string Locations { get; set; }
 
 		[Parameter("awesome", "a", optional: true)]
 		[Description("include if the something else was awesome")]
 		public bool Awesome { get; set; }
 
+		private static readonly char[] _comma = {','};
+
 		public void Run()
 		{
 			var options = new OptionsForSomethingElse
 			{
-				Locations = Locations,
+				Locations = Locations.Split(_comma, StringSplitOptions.RemoveEmptyEntries),
 				NotSoAwesome = !Awesome
 			};
 
