@@ -6,3 +6,4 @@
 		public int Times { get; set; }
 		public bool Awesome { get; set; }
 	}
+}
