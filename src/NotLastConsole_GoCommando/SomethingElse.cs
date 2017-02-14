@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using DgonDotNet.Blog.Samples.NotLastConsole;
 using GoCommando;
 
@@ -10,9 +11,9 @@ namespace DgonDotNet.Blog.Samples.NotLastConsole_GoCommando
 	{
 		private readonly ADoerOfSomethingElse _command;
 
-		public SomethingElse()
+		public SomethingElse(TextWriter writer)
 		{
-			_command = new ADoerOfSomethingElse(Console.Out);
+			_command = new ADoerOfSomethingElse(writer);
 		}
 
 		[Parameter("locations", "l")]

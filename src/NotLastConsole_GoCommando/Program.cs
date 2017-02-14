@@ -6,7 +6,7 @@ namespace DgonDotNet.Blog.Samples.NotLastConsole_GoCommando
 	{
 		static void Main(string[] args)
 		{
-			Go.Run();
+			Go.Run<CustomFactory>();
 		}
 	}
 }
