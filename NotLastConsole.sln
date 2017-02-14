@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotLastConsole", "src\NotLa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotLastConsole_GoCommando", "src\NotLastConsole_GoCommando\NotLastConsole_GoCommando.csproj", "{158A6B3F-976F-4793-81C4-6CC62D3B5C05}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotLastConsole_CommandLineParser", "src\NotLastConsole_CommandLineParser\NotLastConsole_CommandLineParser.csproj", "{08473847-C68B-4C8A-AC3B-E81BE1A2BAA2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{158A6B3F-976F-4793-81C4-6CC62D3B5C05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{158A6B3F-976F-4793-81C4-6CC62D3B5C05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{158A6B3F-976F-4793-81C4-6CC62D3B5C05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08473847-C68B-4C8A-AC3B-E81BE1A2BAA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08473847-C68B-4C8A-AC3B-E81BE1A2BAA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08473847-C68B-4C8A-AC3B-E81BE1A2BAA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08473847-C68B-4C8A-AC3B-E81BE1A2BAA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
