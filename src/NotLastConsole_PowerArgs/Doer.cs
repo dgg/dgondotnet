@@ -11,6 +11,9 @@ namespace DgonDotNet.Blog.Samples.NotLastConsole_PowerArgs
 		[ArgPosition(0)]
 		public string Action { get; set; }
 
+		[HelpHook, ArgShortcut("-?"), ArgDescription("Shows this help")]
+		public bool Help { get; set; }
+
 		public Something SomethingArgs { get; set; }
 		public SomethingElse SomethingElseArgs { get; set; }
 
