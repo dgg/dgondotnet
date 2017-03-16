@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotLastConsole_CommandLineP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotLastConsole_PowerArgs", "src\NotLastConsole_PowerArgs\NotLastConsole_PowerArgs.csproj", "{25F01EBA-68B4-4F65-A929-23AB4AC3FAB0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotLastConsole_LBiCliArguments", "src\NotLastConsole_LBiCliArguments\NotLastConsole_LBiCliArguments.csproj", "{63C4CA35-88DC-45C7-90B4-6C6745164A7E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{25F01EBA-68B4-4F65-A929-23AB4AC3FAB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25F01EBA-68B4-4F65-A929-23AB4AC3FAB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25F01EBA-68B4-4F65-A929-23AB4AC3FAB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63C4CA35-88DC-45C7-90B4-6C6745164A7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63C4CA35-88DC-45C7-90B4-6C6745164A7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63C4CA35-88DC-45C7-90B4-6C6745164A7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63C4CA35-88DC-45C7-90B4-6C6745164A7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
