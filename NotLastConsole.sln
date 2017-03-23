@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotLastConsole_LBiCliArgume
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotLastConsole_CommandLineUtils", "src\NotLastConsole_CommandLineUtils\NotLastConsole_CommandLineUtils.csproj", "{B430FF99-B2FF-4F2C-9924-E62A86EC5582}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotLastConsole_CLAP", "src\NotLastConsole_CLAP\NotLastConsole_CLAP.csproj", "{22C1F513-FF9E-422A-8C15-40C17F61943A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{B430FF99-B2FF-4F2C-9924-E62A86EC5582}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B430FF99-B2FF-4F2C-9924-E62A86EC5582}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B430FF99-B2FF-4F2C-9924-E62A86EC5582}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22C1F513-FF9E-422A-8C15-40C17F61943A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22C1F513-FF9E-422A-8C15-40C17F61943A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22C1F513-FF9E-422A-8C15-40C17F61943A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22C1F513-FF9E-422A-8C15-40C17F61943A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
