@@ -18,7 +18,7 @@ namespace SwaggerSamples.Controllers
 			{
 				I = 42,
 				B = true,
-				S = new[] { "a", "b", "c"}
+				S = new[] { "a", "b", "c" }
 			};
 			OneResponse response = new OneResponse
 			{

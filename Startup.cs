@@ -21,6 +21,7 @@ namespace SwaggerSamples
 			services
 				.AddSwaggerGen(o =>
 				{
+					o.SchemaFilter<SampleFilter>();
 					o.SwaggerDoc("v1", new Info { Title = "SwaggerSamples", Version = "v1" });
 				})
 				.AddMvcCore()
