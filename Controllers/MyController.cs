@@ -12,7 +12,7 @@ namespace SwaggerSamples.Controllers
 		[Route("one")]
 		public IActionResult One([FromBody]OneRequest request)
 		{
-			if (request.N == 0) return NotFound();
+			if (request.I == 0) return NotFound();
 
 			OutputDto result = new OutputDto
 			{
