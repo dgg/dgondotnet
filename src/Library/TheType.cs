@@ -11,7 +11,7 @@ namespace BreakingChangeAnatomy.Library
             // fake doing something
             var result = new TheReturn
             {
-                Something = $"{TheProperty} {argument.Postfix}"
+                Something = $"{TheProperty}{argument.Postfix}"
             };
             return result;
         }
