@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Library">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\Library.dll</HintPath>
     </Reference>
     <Reference Include="System" />
